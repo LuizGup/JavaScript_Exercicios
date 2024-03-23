@@ -38,3 +38,7 @@ button{
 button:hover{
     animation: eita 1s infinite alternate ease-in-out;
 }
+.eita{
+    animation: eita 1s infinite alternate ease-in-out;
+
+}
