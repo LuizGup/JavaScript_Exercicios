@@ -1,4 +1,6 @@
-function soma() {
+document.addEventListener('keydown')
+
+function calculosDiversos() {
     let numeroA = parseInt(document.getElementById('numeroA').value);
     let numeroB = parseInt(document.getElementById('numeroB').value);
 
