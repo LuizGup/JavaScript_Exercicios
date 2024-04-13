@@ -3,6 +3,8 @@ function aluno() {
     let valor1 = parseFloat(document.getElementById('valor1').value);
     let valor2 = parseFloat(document.getElementById('valor2').value);
 
-    document.getElementById('resultado').innerHTML = `${nomeDoAluno}, olá! Sua nota da prova 1 é ${nota1}, da prova 2 é ${nota2} e da prova 3 é ${nota3} <br><br> Sua média é ${dividir(somar(nota1, nota2, nota3), 3)}`
+    [valor1, valor2] = [valor2, valor1];
+
+    document.getElementById('resultado').innerHTML = ` Valor 1 = ${valor1} <br> Valor 2 = ${valor2}`
 
 }

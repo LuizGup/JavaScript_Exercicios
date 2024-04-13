@@ -1,38 +1,42 @@
-
-function vendedor() {
-    let nomeFuncionario = document.getElementById('nomeFuncionario').value;
-    let salario = parseFloat(document.getElementById('salario').value);
-    let vendas = parseFloat(document.getElementById('vendas').value);
-
-    if (!nomeFuncionario) {
-        alert('Preencha o nome');
-        return;
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      calcula()
     }
-    if (!salario) {
-        alert('Preencha o primeiro número');
-        return;
+  })
+  
+  function calcula() {
+    let nome = document.getElementById('nomeFuncionario').value
+    let salarioFixo = document.getElementById('salario').value
+    let totalVendas = document.getElementById('vendas').value
+  
+    if (!nome) {
+      alert('Preencha o nome do vendedor')
+      return
     }
-
-    if (vendas == '') {
-        alert('Preencha o segundo número');
-        return;
+  
+    if (salarioFixo == '') {
+      alert('Preencha o salário fixo')
+      return
     }
-    function somar(a, b) {
-        return a + b;
+    
+    if (totalVendas == '') {
+      alert('Preencha o total em vendas')
+      return
     }
-    function subtrair(a, b) {
-        return a - b;
-    }
-    function multiplicar(a, b) {
-        return a * b;
-    }
-    function dividir(a, b) {
-        return a / b;
-    }
-    function br(a){
-        return a.toLocateString('pt-BR', {style: 'currency', currency: 'BRL'})
-    }
-
-    document.getElementById('resultado').innerHTML = `O nome do Funcionário é ${nomeFuncionario}, o seu salario fixo é ${salario}, o seu salario final é ${br(somar(salario, multiplicar(vendas, 0.15)))}`
-
-}
+  
+    let porcentagemComissao = 0.15;
+    salarioFixo = parseFloat(salarioFixo)
+    totalVendas = parseFloat(totalVendas)
+  
+    let salarioTotal = salarioFixo + totalVendas * porcentagemComissao
+  
+    document.getElementById("resultado").innerHTML = `
+      O vendedor ${nome} tem o salário fixo de ${moedaBrasil(salarioFixo)}
+      e vendeu no total ${moedaBrasil(totalVendas)}.
+      Sendo assim o salário final do vendedor é: ${moedaBrasil(salarioTotal)}.
+    `
+  }
+  
+  function moedaBrasil(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  }
